@@ -11,9 +11,13 @@ public:
     GamePlay(int armySize, int boardSize);
     vector<Army> armies;
     Board board;
-    void initArmies(int size);
-    void initSoldiersPositions();
+
     void turn(int id);
     void checkVictory();
+
+protected:
+    void initArmies(int size);
+    void initSoldiersPositions();
+    int armySize, boardSize;
 };
 

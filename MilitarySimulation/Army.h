@@ -8,7 +8,8 @@ class Army
 {
 public:
     
-    Army(int id, int armySize);
+    Army(int id);
+    void initSoldiers(int armySize);
     vector<Soldier> soldiers;
     int remainingSoldiers;
     void turn();
