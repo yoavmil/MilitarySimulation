@@ -11,9 +11,8 @@ public:
     GamePlay(int armySize, int boardSize);
     vector<Army> armies;
     Board board;
-
-    void turn(int id);
-    void checkVictory();
+    void loop(int turns);
+    bool checkVictory();
 
 protected:
     void initArmies(int size);

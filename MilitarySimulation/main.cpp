@@ -4,7 +4,7 @@
 #include "GamePlay.h"
 
 #define DEFAULT_ARMY_SIZE 20
-#define DEFUALT_BOARD_SIZE 50 // TODO change to 100
+#define DEFUALT_BOARD_SIZE 100
 
 int main(int argc, char** argv) {
 	int armySize = DEFAULT_ARMY_SIZE;
@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
 	}
 
 	GamePlay game(armySize, DEFUALT_BOARD_SIZE);
-	game.board.print();
-
+	game.loop(50);
+	
 	return 0;
 }

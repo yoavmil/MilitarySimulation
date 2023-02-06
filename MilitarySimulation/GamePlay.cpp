@@ -9,10 +9,26 @@ GamePlay::GamePlay(int armySize, int boardSize):
 	initSoldiersPositions();
 }
 
+void GamePlay::loop(int turns)
+{
+	for (int turn = 0; turn < turns && !checkVictory(); turn++) {
+		armies[turn % armies.size()].turn();
+		board.print();
+		// system("pause");
+	}
+}
+
+bool GamePlay::checkVictory()
+{
+	return std::any_of(armies.begin(), armies.end(), [](const Army& army) {
+		return army.remainingSoldiers == 0;
+		});
+}
+
 void GamePlay::initArmies(int size)
 {
-	armies.push_back(Army((int)armies.size()));
-	armies.push_back(Army((int)armies.size()));
+	armies.push_back(Army(&board, (int)armies.size()));
+	armies.push_back(Army(&board, (int)armies.size()));
 	for (auto& army : armies) 
 		army.initSoldiers(armySize);
 }
